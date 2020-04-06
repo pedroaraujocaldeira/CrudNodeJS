@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 // Iniciando o DB
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect(process.env.MONGO_URL,  {useNewUrlParser: true, useUnifiedTopology: true });
 requireDir('./src/models');
 
 // Rotas
