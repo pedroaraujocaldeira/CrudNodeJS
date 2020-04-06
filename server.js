@@ -2,8 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 const cors = require('cors');
-
-
+const env = require('env');
 
 // docker
 // init docker "docker start <name>"
@@ -15,7 +14,8 @@ app.use(express.json());
 app.use(cors());
 
 // Iniciando o DB
-mongoose.connect('mongodb://localhost:27017/nodeapi');
+
+mongoose.connect(env.MONGO_URL);
 requireDir('./src/models');
 
 // Rotas
