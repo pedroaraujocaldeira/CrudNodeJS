@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
@@ -13,7 +14,6 @@ app.use(express.json());
 app.use(cors());
 
 // Iniciando o DB
-
 mongoose.connect(process.env.MONGO_URL);
 requireDir('./src/models');
 
